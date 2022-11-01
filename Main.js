@@ -30,14 +30,10 @@ for (let i = 2; i < process.argv.length; ++i)
 
 if (method==undefined){
     console.log("Ошибка в выборе метода");
-    const time_end=new Date().getTime();
-    console.log(`Время работы : ${time_end-start_time}`);
     return 0;
 }
 if (!Access_file.availible(Path[0],Path[1])){
     console.log("Ошибка в доступе к файлу/aм");
-    const time_end=new Date().getTime();
-    console.log(`Время работы : ${time_end-start_time}`);
      return 0;
     }
 
