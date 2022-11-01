@@ -37,9 +37,13 @@ if (!Access_file.availible(Path[0],Path[1])){
      return 0;
     }
 
-if (Access_file.valid_str(Path[0],Path[1]))
-{
+if (Access_file.valid_str(Path[0],Path[1])) {
     res=Access_file.start(Path[0],Path[1],key_user,method);
+}
+else
+{
+    console.log("Подстрока больше строки");
+    return;
 }
 
 const end_time=new Date().getTime();
