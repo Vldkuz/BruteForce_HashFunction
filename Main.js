@@ -49,25 +49,18 @@ if (Access_file.valid_str(Path[0],Path[1]))
 const end_time=new Date().getTime();
 const Time=end_time-start_time;
 
-for (let i = 0; i < key_user.length; ++i) {
-    if (key_user[i]=='-c' && method!='b')
-    {
-        console.log(`Число коллизий : ${res[1]}`);
-        console.log(`Вхождения : ${res[0]}`);
-        return 0;
-    }
-    if (key_user[i]=='-n' && method!='b') {
-        console.log(`Индексы первых ${key_user[i+1]} вхождений : ${res[0]} `);
-        return 0;
-    }
-    if (key_user[i]=='-n' && method=='b') {
-        console.log(`Индексы первых ${key_user[i+1]} вхождений : ${res} `);
-        return 0;
-    }
-    if (key_user[i]=='-t')
-    {
-        console.log(`Время работы программы : ${Time}`);
+if (method=='b')
+{
+    for (let i = 0; i < key_user.length; ++i){
+        if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res}`);
+        if (key_user[i]=='-t') console.log(`Время работы программы: ${Time}`);
     }
 }
-
-console.log(`Вхождения : ${res}`);
+else
+{
+    for (let i = 0; i < key_user.length; ++i){
+        if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res[0]}`);
+        if (key_user[i]=='-t') console.log(`Время работы программы: ${Time}`);
+        if (key_user[i]=='-c') console.log(`Число коллизий : ${res[1]} `);
+    }
+}
