@@ -1,8 +1,6 @@
 const Access_file=require("./lib/Work_with_files");
 const funct_arr=require("./lib/Functions_arr");
 
-const start_time=new Date().getTime();
-
 let keys=['-c','-n','-t'];
 let methods=['b','h1','h2','h3'];
 let [key_user,method,Path]=[[],,[]];
@@ -30,11 +28,11 @@ for (let i = 2; i < process.argv.length; ++i)
 
 if (method==undefined){
     console.log("Ошибка в выборе метода");
-    return 0;
+    return ;
 }
 if (!Access_file.availible(Path[0],Path[1])){
     console.log("Ошибка в доступе к файлу/aм");
-     return 0;
+     return ;
     }
 
 if (Access_file.valid_str(Path[0],Path[1])) {
@@ -46,21 +44,18 @@ else
     return;
 }
 
-const end_time=new Date().getTime();
-const Time=end_time-start_time;
-
 if (method=='b')
 {
     for (let i = 0; i < key_user.length; ++i){
         if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res}`);
-        if (key_user[i]=='-t') console.log(`Время работы программы: ${Time}`);
+        if (key_user[i]=='-t') console.log(`Время работы программы: ${res[1]}`);
     }
 }
 else
 {
     for (let i = 0; i < key_user.length; ++i){
         if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res[0]}`);
-        if (key_user[i]=='-t') console.log(`Время работы программы: ${Time}`);
+        if (key_user[i]=='-t') console.log(`Время работы программы: ${res[2]}`);
         if (key_user[i]=='-c') console.log(`Число коллизий : ${res[1]} `);
     }
 }
