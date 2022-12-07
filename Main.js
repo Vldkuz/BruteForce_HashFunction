@@ -47,15 +47,17 @@ else
 if (method=='b')
 {
     for (let i = 0; i < key_user.length; ++i){
-        if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res}`);
+        if (key_user[i]=='-n') {console.log(`Число первых ${key_user[i+1]} вхождений ${res[0]}`),bflag=0};
         if (key_user[i]=='-t') console.log(`Время работы программы: ${res[1]}`);
     }
 }
 else
 {
     for (let i = 0; i < key_user.length; ++i){
-        if (key_user[i]=='-n') console.log(`Число первых ${key_user[i+1]} вхождений ${res[0]}`);
+        if (key_user[i]=='-n') {console.log(`Число первых ${key_user[i+1]} вхождений ${res[0]}`),bflag=0};
         if (key_user[i]=='-t') console.log(`Время работы программы: ${res[2]}`);
         if (key_user[i]=='-c') console.log(`Число коллизий : ${res[1]} `);
     }
 }
+
+if (bflag) console.log(res[0]);
